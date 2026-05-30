@@ -455,6 +455,27 @@ em.fr {
   color: var(--ink-soft);
   font-size: 0.96rem;
 }
+.ship--link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.3s var(--ease);
+}
+.ship--link:hover {
+  background: #fbfdf6;
+}
+.ship-link {
+  display: inline-block;
+  margin-top: 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: var(--green-deep);
+}
+.ship--link:hover .ship-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* ============================================================
    PRACTICAL FIT band

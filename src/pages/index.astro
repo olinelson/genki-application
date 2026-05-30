@@ -49,11 +49,15 @@ const ships = [
     tag: 'Founder · AI-native',
     name: 'Ricordi',
     body: 'A platform for music lessons — record a lesson and AI turns it into a timestamped practice plan. Built end-to-end; live in beta, iOS in App Store review.',
+    href: 'https://ricordi.ai',
+    hrefLabel: 'ricordi.ai',
   },
   {
     tag: 'Founder · live product',
     name: 'Maestrocast',
     body: 'A low-latency real-time video platform for online music teaching, from product and brand through to infra. The product whose lessons led to Ricordi.',
+    href: 'https://maestrocast.com',
+    hrefLabel: 'maestrocast.com',
   },
   {
     tag: 'Uscreen · 0→1',
@@ -171,13 +175,21 @@ const ships = [
       </h2>
       <div class="ships">
         {
-          ships.map((s, i) => (
-            <div class="ship reveal" style={`--d:${0.06 * i}s`}>
-              <span class="tag">{s.tag}</span>
-              <h3>{s.name}</h3>
-              <p>{s.body}</p>
-            </div>
-          ))
+          ships.map((s, i) => {
+            const Tag = s.href ? 'a' : 'div'
+            return (
+              <Tag
+                class:list={['ship', 'reveal', s.href && 'ship--link']}
+                style={`--d:${0.06 * i}s`}
+                {...(s.href ? { href: s.href, target: '_blank', rel: 'noopener' } : {})}
+              >
+                <span class="tag">{s.tag}</span>
+                <h3>{s.name}</h3>
+                <p>{s.body}</p>
+                {s.href && <span class="ship-link">{s.hrefLabel} ↗</span>}
+              </Tag>
+            )
+          })
         }
       </div>
     </div>
