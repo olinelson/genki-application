@@ -397,7 +397,7 @@ em.fr {
 .terminal-bar .b:nth-child(1) { background: var(--spark); }
 .terminal-bar .b:nth-child(2) { background: #f4c542; }
 .terminal-bar .b:nth-child(3) { background: var(--green-bright); }
-.terminal-bar span {
+.terminal-bar span:not(.b) {
   margin-left: auto;
   color: #6b6d5c;
   font-size: 0.72rem;
