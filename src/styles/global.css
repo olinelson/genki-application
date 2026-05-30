@@ -628,7 +628,13 @@
     color: var(--color-muted);
     letter-spacing: 0.03em;
   }
-  footer a { color: var(--color-accent-deep); text-decoration: none; }
+  footer a {
+    color: var(--color-accent-deep);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.7rem;
+  }
+  footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
   /* ---------- reveal-on-scroll — CSS scroll-driven animation, no JS ----------
      Each element fades + rises as it scrolls into view. Falls back to fully
