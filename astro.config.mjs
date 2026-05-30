@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config'
 
-// Set `site` to wherever this ends up (Vercel/Netlify/custom domain).
-// If deploying to a GitHub Pages *project* page, also set `base: '/genki-application'`.
+// Deployed to GitHub Pages as a project site: olinelson.github.io/genki-application/
+// If you later move to a custom domain or Vercel/Netlify, drop `base` and update `site`.
 export default defineConfig({
-  site: 'https://oli-for-genki.example',
+  site: 'https://olinelson.github.io',
+  base: '/genki-application',
 })
