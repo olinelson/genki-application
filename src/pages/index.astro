@@ -110,23 +110,19 @@ const ships = [
       <div class="accordion reveal">
         {
           fit.map((f, i) => (
-            <div class="item">
-              <button class="item-btn" aria-expanded={i === 0 ? 'true' : 'false'}>
+            <details class="item" open={i === 0}>
+              <summary class="item-btn">
                 <span class="item-num">{String(i + 1).padStart(2, '0')}</span>
                 <span class="item-q" set:html={f.q} />
                 <span class="item-toggle" aria-hidden="true" />
-              </button>
-              <div class="item-panel">
-                <div>
-                  <div class="item-answer">
-                    {f.a.map((para) => (
-                      <p set:html={para} />
-                    ))}
-                    <span class="proof-tag">{f.tag}</span>
-                  </div>
-                </div>
+              </summary>
+              <div class="item-answer">
+                {f.a.map((para) => (
+                  <p set:html={para} />
+                ))}
+                <span class="proof-tag">{f.tag}</span>
               </div>
-            </div>
+            </details>
           ))
         }
       </div>
@@ -162,7 +158,7 @@ const ships = [
             <span class="ln prompt-line">Map their five requirements to my real proof points — click-to-expand, quote their posting.</span>
             <span class="ln reply">→ accessible single-open accordion + reveal-on-scroll</span>
             <span class="ln prompt-line">Keep it fast and dependency-light — they care about performance.</span>
-            <span class="ln reply">→ zero JS framework · pure-CSS motion · ~5kb of script</span>
+            <span class="ln reply">→ zero JS framework · pure-CSS UI &amp; motion · ~0.4kb of script</span>
             <span class="ln prompt-line caret-line"><span class="caret" aria-hidden="true"></span></span>
           </div>
         </div>
@@ -182,8 +178,8 @@ const ships = [
           <span class="stat-l">Lighthouse · a11y &amp; best-practices</span>
         </div>
         <div class="stat">
-          <span class="stat-n"><span class="u">1</span></span>
-          <span class="stat-l">inline script · the accordion</span>
+          <span class="stat-n"><span class="u">0</span></span>
+          <span class="stat-l">JS driving the UI · all CSS</span>
         </div>
       </div>
     </div>

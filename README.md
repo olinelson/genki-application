@@ -12,7 +12,7 @@ AI-agentic workflow the role is hiring for.
 
 - **Astro 5** — static output, zero UI framework
 - Custom CSS design system (Fraunces + Hanken Grotesk + JetBrains Mono)
-- ~5kb of vanilla JS (reveal-on-scroll + accessible accordion)
+- Zero-JS UI — native `<details>` accordion, CSS scroll-driven reveals & progress bar; ~0.4kb of script (just a console hello)
 
 ## Develop
 

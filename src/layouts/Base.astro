@@ -54,23 +54,13 @@ const ogImage = new URL(`${base}/og.jpg`, Astro.site).href
     <slot />
 
     <script>
-      // accordion (click-based, single-open, accessible).
-      // Reveal-on-scroll is pure CSS now — see `.reveal` (animation-timeline: view()).
-      const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('.item-btn'))
-      buttons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const isOpen = btn.getAttribute('aria-expanded') === 'true'
-          buttons.forEach((b) => b.setAttribute('aria-expanded', 'false'))
-          btn.setAttribute('aria-expanded', String(!isOpen))
-        })
-      })
-
-      // for the engineer who opens devtools — hello 👋
+      // No behavioral JS — the accordion is a pure-CSS radio group, motion &
+      // reveals are CSS scroll-driven. This block is just a console hello 👋
       const brand = 'color:#c25a12;font:600 13px ui-monospace,monospace'
       const soft = 'color:#8a8c78;font:400 12px ui-monospace,monospace'
       console.log('%cYou opened the console. Good instinct.', brand)
       console.log(
-        '%cThis page is static Astro — zero JS framework, ~5kb of vanilla script, built with Claude Code.\nIf you got this far, you should probably just email me: olivernelson@hey.com',
+        '%cThis page is static Astro — zero JS framework, a pure-CSS UI, ~0.4kb of script (this hello), built with Claude Code.\nIf you got this far, you should probably just email me: olivernelson@hey.com',
         soft,
       )
     </script>
