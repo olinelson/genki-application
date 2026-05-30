@@ -517,6 +517,19 @@ em.fr {
 .close {
   text-align: center;
 }
+.portrait {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  margin: 0 auto 1.8rem;
+  border: 3px solid var(--card);
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 16px 34px -16px rgba(10, 60, 38, 0.45);
+}
 .close h2 {
   font-size: clamp(2.4rem, 1.2rem + 6vw, 5rem);
   letter-spacing: -0.03em;

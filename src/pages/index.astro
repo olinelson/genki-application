@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro'
+import { Image } from 'astro:assets'
+import portrait from '../assets/oli.jpeg'
 
 const fit = [
   {
@@ -229,7 +231,15 @@ const ships = [
   <!-- CLOSE -->
   <section class="close">
     <div class="wrap">
-      <h2 class="reveal">Let’s <em>talk.</em></h2>
+      <Image
+        src={portrait}
+        alt="Oli Nelson"
+        width={208}
+        height={208}
+        class="portrait reveal"
+        loading="lazy"
+      />
+      <h2 class="reveal" style="--d:.08s">Let’s <em>talk.</em></h2>
       <div class="links reveal" style="--d:.1s">
         <a class="btn primary" href="mailto:olivernelson@hey.com">Email me →</a>
         <a class="btn" href="https://olinelson.com" target="_blank" rel="noopener">Portfolio</a>
