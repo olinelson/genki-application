@@ -11,6 +11,9 @@ const {
   description =
     'An interactive application for the Lead Web Engineer role at Genki — built in Astro with Claude Code, by Oli Nelson.',
 } = Astro.props
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const ogImage = new URL(`${base}/og.jpg`, Astro.site).href
 ---
 
 <!doctype html>
@@ -30,6 +33,14 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Oli Nelson — I built this instead of a cover letter." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,6 +50,7 @@ const {
     />
   </head>
   <body>
+    <div class="scrollbar" aria-hidden="true"></div>
     <slot />
 
     <script>
@@ -52,6 +64,15 @@ const {
           btn.setAttribute('aria-expanded', String(!isOpen))
         })
       })
+
+      // for the engineer who opens devtools — hello 👋
+      const brand = 'color:#c25a12;font:600 13px ui-monospace,monospace'
+      const soft = 'color:#8a8c78;font:400 12px ui-monospace,monospace'
+      console.log('%cYou opened the console. Good instinct.', brand)
+      console.log(
+        '%cThis page is static Astro — zero JS framework, ~5kb of vanilla script, built with Claude Code.\nIf you got this far, you should probably just email me: olivernelson@hey.com',
+        soft,
+      )
     </script>
   </body>
 </html>
