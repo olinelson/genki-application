@@ -1,0 +1,66 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Oli Nelson → Genki · Lead Web Engineer',
+  description =
+    'An interactive application for the Lead Web Engineer role at Genki — built in Astro with Claude Code, by Oli Nelson.',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      // reveal-on-scroll
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in')
+              io.unobserve(e.target)
+            }
+          }
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+      )
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el))
+
+      // accordion (click-based, single-open, accessible)
+      const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('.item-btn'))
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const isOpen = btn.getAttribute('aria-expanded') === 'true'
+          buttons.forEach((b) => b.setAttribute('aria-expanded', 'false'))
+          btn.setAttribute('aria-expanded', String(!isOpen))
+        })
+      })
+    </script>
+  </body>
+</html>

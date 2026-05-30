@@ -1,0 +1,233 @@
+---
+import Base from '../layouts/Base.astro'
+
+const fit = [
+  {
+    q: 'Unify what’s grown organically into one clean foundation.',
+    a: [
+      'This is the headline task — and close to something I’ve already shipped. At <strong>Rapid Global</strong> I owned the rebuild of the Welcome App site-compliance system, <strong>collapsing 3+ microservices into a single full-stack React Router app</strong> that handled hundreds of check-ins and thousands of facial-recognition events a day.',
+      'Taking a sprawl of organically-grown surfaces and turning it into one coherent, maintainable foundation is the work I most want to do — and the work I’m best at.',
+    ],
+    tag: 'Rapid Global · Welcome App V2',
+  },
+  {
+    q: 'Build carefully <span class="quote">and</span> ship fast — no contradiction.',
+    a: [
+      'I’ve never accepted that as a trade-off. I shipped a <strong>multi-modal AI safety agent to production in two weeks</strong> at Rapid; at Uscreen I led the Zoom Marketplace integration end-to-end through <strong>full security review</strong> — SSDLC, SAST/DAST, pen testing.',
+      'Fast and careful are the same discipline done well: tight scope, the right abstractions, and not mistaking motion for progress.',
+    ],
+    tag: 'Rapid Global · Uscreen',
+  },
+  {
+    q: 'Use AI agents to build better software, every day.',
+    a: [
+      'I <strong>lead Uscreen’s adoption of AI-assisted development</strong> — I’ve built custom Claude Code skills for automated testing and logical-bug detection, and most of my day is spent steering agents and deciding when to trust the output and when not to.',
+      '<strong>This page is a small live example</strong> — built in Astro, with Claude Code, in one sitting. I set the architecture and the aesthetic; the agent moves fast inside those rails.',
+    ],
+    tag: 'Uscreen · this page',
+  },
+  {
+    q: 'Your stack: TypeScript, React Router, Astro, Vite, GraphQL.',
+    a: [
+      'It’s already my stack. I build with TypeScript and React Router for anything app-shaped; my own site is Astro; GraphQL and Vite are daily tools. <strong>No ramp-up quarter spent learning your toolbox.</strong>',
+      'I also span the full stack beyond the browser — Rails, Node, Python — so I can own a web surface from the pixel to the deploy without waiting on a backend handoff.',
+    ],
+    tag: 'olinelson.com is built in Astro',
+  },
+  {
+    q: 'Let non-engineers ship safely, behind real guardrails.',
+    a: [
+      'This is the part I’m most excited about. I’ve already done a version of it for one team — shared standards, custom tooling, and quality gates that let people move fast without breaking things.',
+      'Doing that for a <strong>whole company</strong> — standardized review, security, and deployment so shipping stays safe as more people contribute — is the natural next step, and exactly the kind of leverage I want to build.',
+    ],
+    tag: 'Uscreen · eng-wide tooling',
+  },
+]
+
+const ships = [
+  {
+    tag: 'Founder · AI-native',
+    name: 'Ricordi',
+    body: 'A platform for music lessons — record a lesson and AI turns it into a timestamped practice plan. Built end-to-end; live in beta, iOS in App Store review.',
+  },
+  {
+    tag: 'Founder · live product',
+    name: 'Maestrocast',
+    body: 'A low-latency real-time video platform for online music teaching, from product and brand through to infra. The product whose lessons led to Ricordi.',
+  },
+  {
+    tag: 'Uscreen · 0→1',
+    name: 'AI Thumbnail Generator',
+    body: 'Video → high-converting thumbnails: Mux frame extraction → GPT-vision scoring → industry-aware templates. Drove per-thumbnail cost down 28×.',
+  },
+  {
+    tag: 'Rapid Global · 2 weeks',
+    name: 'Safety Agent',
+    body: 'A multi-modal AI agent watching live video feeds for on-site hazards, alerting the moment something goes wrong. Scoped and shipped to production in two weeks.',
+  },
+]
+---
+
+<Base>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">An application for Genki — Lead Web Engineer</p>
+      <h1>
+        <span class="line"><span>I built this</span></span>
+        <span class="line"><span>instead of a</span></span>
+        <span class="line"><span class="underline">cover letter.</span></span>
+      </h1>
+      <p class="hero-sub">
+        You said: <em class="fr">show us what you’ve got.</em> So here it is — a one-page case for
+        why I’m your sole web engineer, built in Astro with Claude Code. A small preview of how I’d
+        build your web foundation.
+      </p>
+      <div class="hero-meta">
+        <span><b>Oli Nelson</b></span>
+        <span>Product engineer &amp; founder</span>
+        <span>Australia · async</span>
+      </div>
+      <span class="scrollcue"><span class="dot"></span> Scroll — your posting, answered</span>
+    </div>
+  </header>
+
+  <!-- THE FIT -->
+  <section class="fit" id="fit">
+    <div class="wrap">
+      <div class="fit-head">
+        <h2 class="section-title reveal">Your posting, <em class="fr accent">answered.</em></h2>
+        <p class="reveal" style="--d:.1s">Five things you’re looking for.<br />Tap any one.</p>
+      </div>
+
+      <div class="accordion reveal" style="--d:.15s">
+        {
+          fit.map((f, i) => (
+            <div class="item">
+              <button class="item-btn" aria-expanded={i === 0 ? 'true' : 'false'}>
+                <span class="item-num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="item-q" set:html={f.q} />
+                <span class="item-toggle" aria-hidden="true" />
+              </button>
+              <div class="item-panel">
+                <div>
+                  <div class="item-answer">
+                    {f.a.map((para) => (
+                      <p set:html={para} />
+                    ))}
+                    <span class="proof-tag">{f.tag}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILT WITH CLAUDE CODE -->
+  <section id="how">
+    <div class="wrap">
+      <div class="meta-grid">
+        <div class="meta-copy reveal">
+          <p class="eyebrow">How this page got made</p>
+          <h2 class="section-title" style="margin-top:1.2rem">Steering the agent.</h2>
+          <p>
+            You want someone who uses AI agents daily and knows <em class="fr">when to trust the
+            output.</em> This page is the proof, not the promise — built in Astro, with Claude Code,
+            in one sitting.
+          </p>
+          <p class="kicker">
+            I own the architecture and the aesthetic. The agent moves fast inside those rails. That’s
+            the daily loop.
+          </p>
+        </div>
+
+        <div class="terminal reveal" style="--d:.12s">
+          <div class="terminal-bar">
+            <span class="b"></span><span class="b"></span><span class="b"></span>
+            <span>claude-code — genki-application</span>
+          </div>
+          <div class="terminal-body">
+            <span class="ln prompt-line">Scaffold an Astro one-pager for the Genki role. Editorial &amp; warm, one green accent, zero generic-AI look.</span>
+            <span class="ln reply">→ astro project + custom design system (Fraunces / Hanken Grotesk), no UI framework</span>
+            <span class="ln prompt-line">Map their five requirements to my real proof points — click-to-expand, quote their posting.</span>
+            <span class="ln reply">→ accessible single-open accordion + reveal-on-scroll</span>
+            <span class="ln prompt-line">Keep it fast and dependency-light — they care about performance.</span>
+            <span class="ln reply">→ zero JS framework · pure-CSS motion · ~5kb of script</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIPPED -->
+  <section style="background:var(--paper-2);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <p class="eyebrow reveal">A few things I’ve shipped</p>
+      <h2 class="section-title reveal" style="--d:.05s;margin-top:1rem">
+        Founder’s instincts, <em class="fr accent">engineer’s hands.</em>
+      </h2>
+      <div class="ships">
+        {
+          ships.map((s, i) => (
+            <div class="ship reveal" style={`--d:${0.06 * i}s`}>
+              <span class="tag">{s.tag}</span>
+              <h3>{s.name}</h3>
+              <p>{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL FIT -->
+  <section class="practical">
+    <div class="wrap">
+      <p class="eyebrow">The practical fit</p>
+      <h2 class="section-title" style="margin-top:1.2rem">Remote, async, and already proven.</h2>
+      <div class="pf-grid">
+        <div class="pf reveal">
+          <div class="pf-k">Timezone</div>
+          <p>
+            I’m in Australia. Your Southeast-Asia &amp; European overlap around German hours suits me
+            better than the US hours I keep now.
+          </p>
+        </div>
+        <div class="pf reveal" style="--d:.08s">
+          <div class="pf-k">Async by default</div>
+          <p>
+            I’m Uscreen’s first Australia-based hire — they waived their standard EST-overlap policy
+            to bring me on. Clear writing over meetings is how I already work.
+          </p>
+        </div>
+        <div class="pf reveal" style="--d:.16s">
+          <div class="pf-k">Ownership</div>
+          <p>
+            As a founder I’m used to owning a surface end-to-end and making the call when not all the
+            information is there yet. Sole web engineer, reporting to a CEO, suits me.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="close">
+    <div class="wrap">
+      <h2 class="reveal">Let’s <em>talk.</em></h2>
+      <div class="links reveal" style="--d:.1s">
+        <a class="btn primary" href="mailto:olivernelson@hey.com">Email me →</a>
+        <a class="btn" href="https://olinelson.com" target="_blank" rel="noopener">Portfolio</a>
+        <a class="btn" href="https://github.com/olinelson" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://ricordi.ai" target="_blank" rel="noopener">Ricordi (live)</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Built by Oli Nelson · Astro + Claude Code · for Genki 🌱
+  </footer>
+</Base>
